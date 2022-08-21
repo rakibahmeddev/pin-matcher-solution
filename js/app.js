@@ -20,3 +20,25 @@ document.getElementById("generate-pin").addEventListener("click", function () {
   const displayPinFiled = document.getElementById("display-pin");
   displayPinFiled.value = pin;
 });
+
+document
+  .getElementById("calculator")
+  .addEventListener("click", function (event) {
+    const number = event.target.innerText;
+    const typedNumberField = document.getElementById("typed-number");
+    const previousTypedNumber = typedNumberField.value;
+    const newTypedNumber = previousTypedNumber + number;
+
+    if (isNaN(number)) {
+      if (number === "C") {
+        typedNumberField.value = "";
+      } else if (number === "<") {
+        const digits = previousTypedNumber.split("");
+        digits.pop();
+        const remainingDigits = digits.join("");
+        typedNumberField.value = remainingDigits;
+      }
+    } else {
+      typedNumberField.value = newTypedNumber;
+    }
+  });
