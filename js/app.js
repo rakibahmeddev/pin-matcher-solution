@@ -42,3 +42,22 @@ document
       typedNumberField.value = newTypedNumber;
     }
   });
+
+document.getElementById("verify-pin").addEventListener("click", function () {
+  const displayPinFiled = document.getElementById("display-pin");
+  const currentPin = displayPinFiled.value;
+
+  const typedNumberField = document.getElementById("typed-number");
+  const typedNumber = typedNumberField.value;
+
+  const pinSuccessMessage = document.getElementById("pin-success");
+  const pinFailMessage = document.getElementById("pin-fail");
+
+  if (typedNumber === currentPin) {
+    pinSuccessMessage.style.display = "block";
+    pinFailMessage.style.display = "none";
+  } else {
+    pinFailMessage.style.display = "block";
+    pinSuccessMessage.style.display = "none";
+  }
+});
